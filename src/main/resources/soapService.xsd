@@ -1,0 +1,111 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="https://github.com/farukyilmazgithub"
+	targetNamespace="https://github.com/farukyilmazgithub"
+	elementFormDefault="qualified">
+
+	<xs:element name="searchUserRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userCode" type="xs:integer" />
+				<xs:element name="accountCode" type="xs:integer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="searchUserResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="User" type="tns:User"
+					minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+			</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="User">
+		<xs:sequence>
+			<xs:element name="userCode" type="xs:integer" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="surName" type="xs:string" />
+			<xs:element name="accountType" type="xs:string" />
+			<xs:element name="accountCode" type="xs:integer" />
+			<xs:element name="balance" type="xs:double" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:element name="searchUserBalanceRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userCode" type="xs:integer" />
+				<xs:element name="accountCode" type="xs:integer" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="searchUserBalanceResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="User" type="tns:UsersBalance"
+							minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="UsersBalance">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="surName" type="xs:string" />
+			<xs:element name="accountCode" type="xs:integer" />
+			<xs:element name="balance" type="xs:double" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:element name="createUserRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="userCode" type="xs:integer" />
+				<xs:element name="name" type="xs:string" />
+				<xs:element name="surName" type="xs:string" />
+				<xs:element name="accountType" type="xs:string" />
+				<xs:element name="accountCode" type="xs:integer" />
+				<xs:element name="balance" type="xs:double" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="createUserResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="User" type="tns:User"
+							minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="searchCompanieRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="companieName" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="searchCompanieResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="companies" type="tns:Companie"
+							minOccurs="0" maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="Companie">
+		<xs:sequence>
+			<xs:element name="companieName" type="xs:string" />
+			<xs:element name="phoneNumber" type="xs:integer" />
+			<xs:element name="faxNumber" type="xs:integer" />
+			<xs:element name="companieAdress" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
